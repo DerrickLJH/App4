@@ -1,0 +1,68 @@
+.loc {
+    height: 200px;
+}
+
+.cardLoc {
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 400px;
+
+}
+
+.navbar{
+    background-image: linear-gradient(45deg, #039be5 20%, #40c4ff 90%) !important;
+}
+.homebtns {
+    background-image: linear-gradient(45deg, #039be5 20%, #40c4ff 90%) !important;
+    box-shadow:1px 3px 5px rgba(3,155,229,0.4);
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    padding: 20px;
+}
+.headerCards {
+    border-radius: 0 !important;
+}
+.cardSchedule {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1000px;
+}
+nav {
+    width: 100%;
+}
+
+body{ 
+    background-color: whitesmoke;
+}
+.chatbot{
+    background-color: white;
+    box-shadow: 3px 3px 3px grey;
+    color: #f57f17 !important;
+    position: fixed;
+    border-radius:50%;
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 35px;
+    right: 20px;
+    bottom: 20px;
+}
+
+iframe {
+    width: 100%;
+    height: 675px;
+    min-height: 500px;
+}
+
+@media only screen and (max-height: 666px) {
+    iframe {
+        height: 400px;
+    }
+}
+
+
+
