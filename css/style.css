@@ -39,7 +39,7 @@ nav {
 body{ 
     background-color: whitesmoke;
 }
-.chatbot{
+.chatboticon{
     background-color: white;
     box-shadow: 3px 3px 3px grey;
     color: #f57f17 !important;
@@ -54,15 +54,7 @@ body{
 
 iframe {
     width: 100%;
-    height: 675px;
-    min-height: 500px;
+    height: 92%;
+    position: absolute;
+    bottom: 0;
 }
-
-@media only screen and (max-height: 666px) {
-    iframe {
-        height: 400px;
-    }
-}
-
-
-

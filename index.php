@@ -67,8 +67,8 @@ and open the template in the editor.
                 
             </div>
         </div>
-        <div class="chatbot">
-            <a href="chatbot.php" class="chatbot btn"><i class="fas fa-comments"></i></a>
+        <div class="chatboticon">
+            <a href="chatbot.php" class="chatboticon btn"><i class="fas fa-comments"></i></a>
         </div>
 
 

@@ -24,9 +24,12 @@ and open the template in the editor.
         </style>
     </head>
     <body>
-        <?php include("panel.php"); ?>
-        <div>
-            <iframe allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/8aff1d48-7cfb-4353-bc66-60c19fe172be"></iframe>
+        <nav class="navbar navbar-expand-md bg-info navbar-dark">
+            <!-- Brand -->
+            <a class="navbar-brand font-weight-bold" href="index.php">ToothAid</a>
+        </nav>
+        <div class="iframe-container">
+            <iframe class= "chatbot" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/8aff1d48-7cfb-4353-bc66-60c19fe172be"></iframe>
         </div>
     </body>
 </html>

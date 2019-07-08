@@ -37,41 +37,47 @@ if (isset($_GET['id'])) {
     <body>
         <?php include("panel.php"); ?>
         <p id="index" style="display: none"><?php echo $id ?></p>
-        <div class="card cardSchedule headerCards">
-            <div class="card-header"><h4>Edit this Appointment</h4></div>
-            <div class="card-body">
-                <form id="form" method="post" action="managebooking.php" class="form-horizontal">
-                    <div class="form-group">
-                        <label for="datetimepicker">Date & Time:</label>
-                        <input type="text" class="form-control" name="date_time" id="datetimepicker1">
-                    </div>
-                    <div class="form-group">
-                        <label for="selService">Service:</label>
-                        <select id="selService" name="service" class="form-control">
-                            <option value="" selected>Please select...</option>
-                            <option value="Braces">Braces</option>
-                            <option value="Dentures">Dentures</option>
-                            <option value="General Dental Treatment">General Dental Treatment</option>
-                            <option value="Gum Disease">Gum Disease</option>
-                            <option value="Implant">Implant</option>
-                            <option value="Nerve Treatment">Nerve Treatment</option>
-                            <option value="Wisdom Tooth">Wisdom Tooth</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="selClinic">Preferred Clinic:</label>
-                        <select id="selClinic" name="clinic" class="form-control">
-                            <option value="" selected>Please select...</option>
-                            <option value="Yew Tee Square Dental Clinic">Yew Tee Square Dental Clinic</option>
-                            <option value="Clementi Dental Clinic">Clementi Dental Clinic</option>
-                            <option value="Ang Mo Kio Dental Clinic">Ang Mo Kio Dental Clinic</option>
-                            <option value="Beach Road Dental Clinic">Beach Road Dental Clinic</option>
-                        </select>
-                    </div>
-                    <input class="btn btn-block btn-primary" id="submit" type="submit" value="Update"/>
-                    <input class="btn btn-block btn-secondary" id="cancel" type="submit" value="Cancel"/>
-                    <input class="btn btn-block btn-danger" id="delete" type="submit" value="Delete"/>
-                </form>
+        <div class="card cardSchedule">
+            <div class="card headerCards">
+                <div class="card-body">
+                    <h4>Manage an Appointment</h4>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body" style="background-color: whitesmoke;">
+                    <form id="form" method="post" action="managebooking.php" class="form-horizontal">
+                        <div class="form-group">
+                            <label for="datetimepicker">Date & Time:</label>
+                            <input type="text" class="form-control" name="date_time" id="datetimepicker1">
+                        </div>
+                        <div class="form-group">
+                            <label for="selService">Service:</label>
+                            <select id="selService" name="service" class="form-control">
+                                <option value="" selected>Please select...</option>
+                                <option value="Braces">Braces</option>
+                                <option value="Dentures">Dentures</option>
+                                <option value="General Dental Treatment">General Dental Treatment</option>
+                                <option value="Gum Disease">Gum Disease</option>
+                                <option value="Implant">Implant</option>
+                                <option value="Nerve Treatment">Nerve Treatment</option>
+                                <option value="Wisdom Tooth">Wisdom Tooth</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="selClinic">Preferred Clinic:</label>
+                            <select id="selClinic" name="clinic" class="form-control">
+                                <option value="" selected>Please select...</option>
+                                <option value="Yew Tee Square Dental Clinic">Yew Tee Square Dental Clinic</option>
+                                <option value="Clementi Dental Clinic">Clementi Dental Clinic</option>
+                                <option value="Ang Mo Kio Dental Clinic">Ang Mo Kio Dental Clinic</option>
+                                <option value="Beach Road Dental Clinic">Beach Road Dental Clinic</option>
+                            </select>
+                        </div>
+                        <input class="btn btn-block btn-primary" id="submit" type="submit" value="Update"/>
+                        <input class="btn btn-block btn-secondary" id="cancel" type="submit" value="Cancel"/>
+                        <input class="btn btn-block btn-danger" id="delete" type="submit" value="Delete"/>
+                    </form>
+                </div>
             </div>
         </div>
         <script>
@@ -79,18 +85,18 @@ if (isset($_GET['id'])) {
             var uid = $("#index").text();
             console.log(uid);
             var ref = database.ref('data/appointment/' + uid);
-            ref.on('value', function(snapshot){
-               var value = snapshot.val();
-               console.log(value);
-               $("#datetimepicker1").val(value.datetime);
-               $("#selService").val(value.service);
-               $("#selClinic").val(value.clinic);
+            ref.on('value', function (snapshot) {
+                var value = snapshot.val();
+                console.log(value);
+                $("#datetimepicker1").val(value.datetime);
+                $("#selService").val(value.service);
+                $("#selClinic").val(value.clinic);
             });
 
             $(function () {
                 $('#datetimepicker1').datetimepicker();
             });
-            
+
             $("#submit").on("click", function () {
                 var datetime = $("#datetimepicker1").val();
                 var selectedService = $("#selService :selected").text();
@@ -102,8 +108,8 @@ if (isset($_GET['id'])) {
                 };
                 database.ref('data/appointment/' + uid).set(data);
             });
-            $("#delete").on("click", function() {
-               database.ref('data/appointment/' + uid).remove(); 
+            $("#delete").on("click", function () {
+                database.ref('data/appointment/' + uid).remove();
             });
         </script>
     </body>
